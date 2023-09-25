@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 
-
 def magic_calculation(a, b):
-    """101-safe_function.py
-    """
+    """101-safe_function.py"""
     result = 0
     for i in range(1, 3):
         try:
