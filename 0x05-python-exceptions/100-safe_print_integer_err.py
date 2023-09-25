@@ -2,7 +2,8 @@
 
 import sys
 def safe_print_integer_err(value):
-"""100-safe_print_integer_err.py"""
+"""Prints an integer with "{:d}".format().
+"""
     try:
         print("{:d}".format(value))
         return (True)
