@@ -1,10 +1,16 @@
 #!/usr/bin/python3
+"""Defining the class"""
+
+
 class Square:
+    """Representing square"""
+
     def __init__(self, size=0):
-        self.size = size
+
     @property
     def size(self):
         return (self.__size)
+
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
