@@ -7,7 +7,7 @@ MyInt function.
 class MyInt(int):
     """Defines MyInt class"""
 
-    def __int__(self, value):
+    def __init__(self, value):
         """MyInt class"""
         self.value = value
 
