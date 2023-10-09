@@ -5,6 +5,7 @@ The myList class
 
 
 class MyList(list):
+    """Subclass of list"""
     def __init__(self):
         """super init"""
         super().__init__()
