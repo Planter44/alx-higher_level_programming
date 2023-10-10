@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+""" Defines print_info. """
 import sys
 
 
 def print_info():
+    """ print info function """
     print('File size: {:d}'.format(file_size))
 
     for scode, code_times in sorted(status_codes.items()):
