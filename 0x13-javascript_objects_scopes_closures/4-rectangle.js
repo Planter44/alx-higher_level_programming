@@ -1,30 +1,31 @@
 #!/usr/bin/node
 module.exports = class Rectangle {
-  constructor (width, height) {
-    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
-      this.width = width;
-      this.height = height;
+  constructor (a, b) {
+    if (typeof a === 'number' && typeof b === 'number' && a > 0 && b > 0) {
+      this.a = a;
+      this.b = b;
     }
   }
+
   print (char = 'X') {
-    for (let i = 0; i < this.height; ++i) {
+    for (let i = 0; i < this.b; ++i) {
       let j = 0;
 
-      for (; j < this.width; ++j) {
+      for (; j < this.a; ++j) {
         process.stdout.write(char);
       }
 
-      if (j === this.width) {
+      if (j === this.a) {
         console.log('');
       }
     }
   }
   rotate () {
-    [this.width, this.height] = [this.height, this.width];
+    [this.a, this.b] = [this.b, this.a];
   }
 
   double () {
-    this.width *= 2;
-    this.height *= 2;
+    this.a *= 2;
+    this.b *= 2;
   }
 };
