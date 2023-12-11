@@ -20,6 +20,7 @@ module.exports = class Rectangle {
       }
     }
   }
+
   rotate () {
     [this.a, this.b] = [this.b, this.a];
   }
