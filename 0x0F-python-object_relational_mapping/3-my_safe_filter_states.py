@@ -3,8 +3,8 @@
 The script lists all the values in states
 """
 
+import sys
 import MySQLdb
-from sys import argv
 
 if __name__ == "__main__":
     mySQL_u = sys.argv[1]
