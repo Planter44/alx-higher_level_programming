@@ -12,11 +12,18 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3])
 
     with db.cursor() as cur:
-    cur.execute("SELECT c.id, c.name, s.name \
-                 FROM cities c \
-                 JOIN states s \
-                 ON c.state_id = s.id \
-                 ORDER BY c.id ASC")
+    cur.execute("""
+      SELECT
+        cities.id, cities.name, states.name
+       FROM
+         cities
+        JOIN
+          states
+        ON
+         cities.state_id = states.id
+        ORDER BY
+          cities.id ASC
+        """)
         rows = cur.fetchall()
 
     if rows is not None:
