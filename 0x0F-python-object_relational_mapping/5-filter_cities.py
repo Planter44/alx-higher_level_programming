@@ -2,34 +2,28 @@
 """
 The script lists all the cities
 """
-import sys
 import MySQLdb
+from sys import argv
 
-if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-    state_name = sys.argv[4]
+if __name__ == '__main__':
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
-    cur = db.cursor()
-
+    with db.cursor() as cur:
         cur.execute("""
             SELECT
-                c.id, c.name
+                cities.id, cities.name, states.name
             FROM
-                c cities
+                cities
             JOIN
                 states
             ON
-                c.state_id = states.id
-            WHERE
-                states.name LIKE BINARY %(state_name)s
+                cities.state_id = states.id
             ORDER BY
-                c.id ASC
-        """, (state_name, ))
-    rows = cur.fetchall()
+                cities.id ASC
+        """)
 
-    for i in range(len(rows)):
-        print(rows[i][0], end=", " if i + 1 < len(rows) else "")
-    print("")
+        rows = cur.fetchall()
+    if rows is not None:
+        for row in rows:
+            print(row)
