@@ -3,17 +3,21 @@
 The script lists all the values in states
 """
 
+import sys
 import MySQLdb
-from sys import argv
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    mySQL_u = sys.argv[1]
+    mySQL_p = sys.argv[2]
+    db_name = sys.argv[3]
 
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    searched_name = sys.argv[4]
 
+    # By default, it will connect to localhost:3306
+    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC".format(argv[4]))
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
+                .format(searched_name))
     rows = cur.fetchall()
-
     for row in rows:
         print(row)
