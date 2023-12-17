@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 The script prints all city objects.
 """
