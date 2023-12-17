@@ -2,6 +2,7 @@
 """
 This the script that prints all City objects.
 """
+
 import sys
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import Session
