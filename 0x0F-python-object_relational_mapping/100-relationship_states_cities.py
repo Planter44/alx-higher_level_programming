@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The script lists all State objects and corresponding City objects.
+This the script that prints all City objects.
 """
 import sys
 from sqlalchemy import (create_engine)
@@ -20,8 +20,8 @@ if __name__ == "__main__":
     engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(bind=engine)
-    states = session.query(State)
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+    newState = State(name="California")
+    newState.cities.append(City(name="San Francisco"))
+
+    session.add(newState)
+    session.commit()
