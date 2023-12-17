@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The script prints all city objects.
+The script prints all City objects.
 """
 
 from sys import argv
