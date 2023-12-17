@@ -3,8 +3,8 @@
 The script lists all the cities
 """
 
-import sys
 import MySQLdb
+from sys import argv
 
 if __name__ == '__main__':
 
@@ -13,9 +13,10 @@ if __name__ == '__main__':
 
     with db.cursor() as cur:
     cur.execute("SELECT c.id, c.name, s.name \
-                 FROM cities c INNER JOIN states s \
+                 FROM cities c \
+                 JOIN states s \
                  ON c.state_id = s.id \
-                 ORDER BY c.id")
+                 ORDER BY c.id ASC")
         rows = cur.fetchall()
 
     if rows is not None:
