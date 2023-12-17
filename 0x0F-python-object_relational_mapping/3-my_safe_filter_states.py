@@ -21,7 +21,7 @@ if __name__ == "__main__":
             FROM
                 states
             WHERE
-                name LIKE BINARY %(name)s
+                name = %s
             ORDER BY id
         """, (searched_name, ))
     rows = cur.fetchall()
