@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""" Script that takes in a URL and Sends a request to the URL to display body of the response"""
+"""Script that takes in a URL and Sends a request to the URL to display body of the response"""
+
 if __name__ == "__main__":
     import urllib.error as error
     import urllib.request as request
