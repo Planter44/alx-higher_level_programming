@@ -18,10 +18,10 @@ function errHandler (err) {
   console.log(err);
 }
 
-function CharPrint (movieId) {
-  const movieUri = `https://swapi-api.hbtn.io/api/films/${movieId}`;
+function CharPrint (movieName) {
+  const UriPrint = `https://swapi-api.hbtn.io/api/films/${movieName}`;
 
-  getDataFrom(movieUri)
+  getDataFrom(UriPrint)
     .then(JSON.parse, errHandler)
     .then(function (res) {
       const characters = res.characters;
